@@ -21,7 +21,3 @@ if __name__ == "__main__":
     # WIP: as there should be a Interactive CLI, there will be somthing similar to an infinite loop with KeyboardInterrupt/exit() close
     # here this is simulated as a sleep timer
     time.sleep(100)
-
-
-    
-
