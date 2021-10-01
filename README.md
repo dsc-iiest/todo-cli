@@ -1,6 +1,18 @@
-# Project Name
+# Todo-CLI
+
+## Features
+Full Fledged Command Line Based Todo List with following features
+
+- [x] Save and Remove Todo
+- [ ] Interactive Interface
+- [ ] Persistent Todo Storage
+- [ ] OS Notifications
+- [ ] Todo Data Encryption
 
 ## Maintainers
+- [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
+- [Rahul Halder](https://github.com/hrahul2605)
+- [Arnab Sen](https://github.com/arnabsen1729)
 
 ## Contributing
 
