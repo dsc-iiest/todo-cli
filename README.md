@@ -12,6 +12,7 @@ Full Fledged Command Line Based Todo List with following features
 ## Maintainers
 - [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
 - [Rahul Halder](https://github.com/hrahul2605)
+- [Arnab Sen](https://github.com/arnabsen1729)
 
 ## Contributing
 
