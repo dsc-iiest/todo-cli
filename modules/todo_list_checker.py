@@ -4,7 +4,7 @@ import time
 
 
 def checker(todo_lst: todo_list):
-    '''
+    """
     Check if any todo from the todo list has passed it's deadline or not
 
     Parameters:
@@ -12,7 +12,7 @@ def checker(todo_lst: todo_list):
 
     Returns:
     None
-    '''
+    """
     try:
         while(True):
             while(todo_lst.list_size() > 0):
