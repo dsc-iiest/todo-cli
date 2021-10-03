@@ -1,7 +1,7 @@
 import datetime
 
 
-class todo:
+class Todo:
     """
     A single todo with a task and a deadline
     """

@@ -1,8 +1,8 @@
-from .todo import todo
+from .todo import Todo
 import heapq
 
 
-class todo_list:
+class TodoList:
     """
     - The To-do List Object which stores the To-do in a Priority Queue (Heap).
     - Heap is based on lowest datetime first to get easy access to most current
@@ -20,7 +20,7 @@ class todo_list:
         task (str): the task of the todo
         deadline_offset (float): after how many min do you need to-do notify?
         """
-        heapq.heappush(self.data, todo(task, deadline_offset))
+        heapq.heappush(self.data, Todo(task, deadline_offset))
 
     def curr_todo_done(self):
         """

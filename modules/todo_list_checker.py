@@ -1,9 +1,9 @@
-from .todo_list import todo_list
+from .todolist import TodoList
 import datetime
 import time
 
 
-def checker(todo_lst: todo_list):
+def checker(todo_lst: TodoList):
     """
     Check if any todo from the todo list has passed it's deadline or not
 
