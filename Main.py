@@ -1,9 +1,9 @@
-from modules.todolist import TodoList
-from modules.todo_list_checker import checker
+from modules.TodoList import TodoList
+from modules.TodoListChecker import checker
 import threading
 import time
 
-# This is a sample intended application of the todo-cli
+# This is a sample intended application of the to-do cli
 
 if __name__ == "__main__":
     t = TodoList()

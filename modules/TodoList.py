@@ -1,4 +1,4 @@
-from .todo import Todo
+from .Todo import Todo
 import heapq
 
 
