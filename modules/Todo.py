@@ -3,15 +3,15 @@ import datetime
 
 class Todo:
     """
-    A single todo with a task and a deadline
+    A single to-do with a task and a deadline
     """
 
     def __init__(self, task: str, offset: float):
         """
-        Makes a Todo
+        Makes a To-do
 
         Parameters:
-        task (str): the task of the Todo
+        task (str): the task of the To-do
         deadline_offset (float): after how many min do you need to-do notify?
         """
         self.time_rec = datetime.datetime.now() + datetime.timedelta(offset)
