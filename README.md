@@ -9,6 +9,9 @@ Full Fledged Command Line Based Todo List with following features
 - [ ] OS Notifications
 - [ ] Todo Data Encryption
 
+## To Run Script
+Running this script is simple does not require any pip install packages.Simply write python3 main.py.
+
 ## Maintainers
 - [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
 - [Rahul Halder](https://github.com/hrahul2605)
