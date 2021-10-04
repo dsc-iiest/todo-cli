@@ -10,7 +10,7 @@ Full Fledged Command Line Based Todo List with following features
 - [ ] Todo Data Encryption
 
 ## To Run Script
-Running this script is simple does not require any pip install packages.Simply write python3 main.py.
+Running this script is simple does not require any pip install packages. Simply write `python3 main.py`.
 
 ## Maintainers
 - [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
