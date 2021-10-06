@@ -1,4 +1,5 @@
 from .TodoList import TodoList
+from .Notifier import send_notification
 import datetime
 import time
 
@@ -19,6 +20,7 @@ def checker(todo_lst: TodoList):
                 t = todo_lst.get_next_todo()
                 if datetime.datetime.now() >= t.get_deadline():
                     print(t)
+                    send_notification(t)
                     todo_lst.curr_todo_done()
             time.sleep(60)
     except KeyboardInterrupt:
