@@ -6,11 +6,24 @@ Full Fledged Command Line Based Todo List with following features
 - [x] Save and Remove Todo
 - [ ] Interactive Interface
 - [ ] Persistent Todo Storage
-- [ ] OS Notifications
+- [x] OS Notifications
 - [ ] Todo Data Encryption
 
 ## To Run Script
-Running this script is simple does not require any pip install packages. Simply write `python3 main.py`.
+1. install dependencies
+    ```
+    pip install -r requirement.txt
+    ```
+2. Run Script
+   ```
+   python3 Main.py
+   ```
+
+## Sample Notification
+Notifications will look like as follows
+
+### Windows 
+   ![Windows](./README-source/windows.png)
 
 ## Maintainers
 - [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
