@@ -26,7 +26,10 @@ Notifications will look like as follows
    ![Windows](./README-source/windows.png)
 
 ### Linux 
-   ![Linux (Xfce4)](./README-source/Xfce4.png)
+   ![Linux (linux)](./README-source/linux.png)
+
+### MacOS 
+   ![Mac](./README-source/MacOS.jpg)
 
 ## Maintainers
 - [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
