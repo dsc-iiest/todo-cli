@@ -12,7 +12,7 @@ Full Fledged Command Line Based Todo List with following features
 ## To Run Script
 1. install dependencies
     ```
-    pip install -r requirement.txt
+    pip install -r requirements.txt
     ```
 2. Run Script
    ```
@@ -24,6 +24,9 @@ Notifications will look like as follows
 
 ### Windows 
    ![Windows](./README-source/windows.png)
+
+### Linux 
+   ![Linux (Xfce4)](./README-source/Xfce4.png)
 
 ## Maintainers
 - [Abhrioop Mukherjee](https://github.com/Abhiroop25902)
