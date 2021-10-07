@@ -8,5 +8,5 @@ def send_notification(t: Todo):
     notification.title = t.get_task()
     notification.message = t.get_desc()
     # notification.audio =
-    # notification.icon =
+    notification.icon = './icon.png'
     notification.send()
