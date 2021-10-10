@@ -66,9 +66,9 @@ if __name__ == "__main__":
             print("\nTask added\n")
 
         elif parsed.command == 'view':
-            # View command logic will go here with
-            # parsed.view will be the keyword for options like 'all', 'overdue'
-            print("To-do list will be printed to screen here")
+            # View command logic will go here
+            # parsed.view will =  keyword for options e.g 'all' or 'overdue'
+            print("\nTo-do list will be printed to screen here\n")
             pass
 
         else:
