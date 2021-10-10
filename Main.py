@@ -48,6 +48,22 @@ if __name__ == "__main__":
     t1.setDaemon(True)
     t1.start()
 
+    # Add some tasks for the purposes of testing
+    t.add_todo(
+        task='Wash Dishes',
+        description="Don't forget to use Vim bar also",
+        minute_deadline_offset=1.5)
+
+    t.add_todo(
+        task='Hang Clothes',
+        description="Also install new hanging rope",
+        minute_deadline_offset=0.5)
+
+    t.add_todo(
+        task='Run Washing Machine',
+        description="Also use Comfort in the end",
+        minute_deadline_offset=1)
+
 
     while True:
         command = input("\nEnter Command ('--help' for usage instructions "
