@@ -62,25 +62,13 @@ if __name__ == "__main__":
             continue
 
         if parsed.command == 'add':
-            t.add_todo(parsed.title, parsed.description, parsed.deadline)
+            if parsed.deadline:
+                t.add_todo(parsed.title, parsed.description, parsed.deadline)
+            else:
+                t.add_todo(parsed.title, parsed.description)
             print(f"\nAdded the todo list item: {parsed.title} added\n")
 
         elif parsed.command == 'view':
             if parsed.view == 'all':
                 for task in t.data:
                     print(task)
-
-        t.add_todo(
-            task='Wash Dishes',
-            description="Don't forget to use Vim bar also",
-            minute_deadline_offset=1.5)
-
-        t.add_todo(
-            task='Hang Clothes',
-            description="Also install new hanging rope",
-            minute_deadline_offset=0.5)
-
-        t.add_todo(
-            task='Run Washing Machine',
-            description="Also use Comfort in the end",
-            minute_deadline_offset=1)
