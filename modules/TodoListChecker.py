@@ -19,7 +19,7 @@ def checker(todo_lst: TodoList):
             while todo_lst.list_size() > 0:
                 t = todo_lst.get_next_todo()
                 if datetime.datetime.now() >= t.get_deadline():
-                    print(t)
+                    t.deadline_reached()
                     send_notification(t)
                     todo_lst.curr_todo_done()
             time.sleep(60)
