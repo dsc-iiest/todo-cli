@@ -35,6 +35,9 @@ def parse_command(command: str):
             default='all', nargs='?',
             help='What type of view you want to invoke')
 
+    if not command:
+        command = '--help'
+
     return parser.parse_args(shlex.split(command))
 
 
@@ -51,7 +54,7 @@ if __name__ == "__main__":
 
     while True:
         command = input("\nEnter Command ('--help' for usage instructions "
-                "commands or 'exit' to close) : ").lower()
+                "or 'exit' to close) : ").lower()
 
         if command == "exit":
             exit()
@@ -70,9 +73,6 @@ if __name__ == "__main__":
             # parsed.view will =  keyword for options e.g 'all' or 'overdue'
             print("\nTo-do list will be printed to screen here\n")
             pass
-
-        else:
-            exit()
 
         t.add_todo(
             task='Wash Dishes',
