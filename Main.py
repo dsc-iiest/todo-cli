@@ -40,6 +40,15 @@ def parse_command(command: str):
 
 if __name__ == "__main__":
 
+
+    t= TodoList()
+    # multithreading used here st it doesn't interfere with Future to-do Insertion
+    t1 = threading.Thread(target=checker, args=(t,), name='t1')
+    # this makes the thread auto close when the parent thread closes
+    t1.setDaemon(True)
+    t1.start()
+
+
     while True:
         command = input("\nEnter Command ('--help' for usage instructions "
                 "commands or 'exit' to close) : ").lower()
@@ -51,8 +60,6 @@ if __name__ == "__main__":
             parsed = parse_command(command)
         except SystemExit:
             continue
-
-        t= TodoList()
 
         if parsed.command == 'add':
             t.add_todo(parsed.title, parsed.description, parsed.deadline)
@@ -81,9 +88,3 @@ if __name__ == "__main__":
             task='Run Washing Machine',
             description="Also use Comfort in the end",
             minute_deadline_offset=1)
-
-        # multithreading used here st it doesn't interfere with Future to-do Insertion
-        t1 = threading.Thread(target=checker, args=(t,), name='t1')
-        # this makes the thread auto close when the parent thread closes
-        t1.setDaemon(True)
-        t1.start()
