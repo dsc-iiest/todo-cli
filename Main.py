@@ -1,15 +1,24 @@
 from modules.TodoList import TodoList
 from modules.TodoListChecker import checker
 import threading
-import time
 
 # This is a sample intended application of the to-do cli
 
 if __name__ == "__main__":
 
     while True:
-        command = input("Enter Command ('exit' to close) : ")
-        if command in ("Exit", "exit"):
+        command = input("Enter Command ('help' to list all commands, 'exit' "
+                "to close) : ").lower()
+
+        if command == "exit":
+            exit()
+
+        if command == "help":
+            print("\nAvailable Commands:", end='\n\n')
+            print("'add' - prompts for information about the task and adds it "
+                "to the to-do list")
+            print("'view' - displays all to-do list items")
+            print("'help' - displays this dialogue", end='\n\n')
             exit()
 
         t= TodoList()
@@ -48,8 +57,3 @@ if __name__ == "__main__":
         # this makes the thread auto close when the parent thread closes
         t1.setDaemon(True)
         t1.start()
-
-        # WIP: as there should be a Interactive CLI, there will be something
-        # similar to an infinite loop with KeyboardInterrupt/exit() close
-        # here this is simulated as a sleep timer
-        #time.sleep(100)
