@@ -66,13 +66,12 @@ if __name__ == "__main__":
 
         if parsed.command == 'add':
             t.add_todo(parsed.title, parsed.description, parsed.deadline)
-            print("\nTask added\n")
+            print(f"\nAdded the todo list item: {parsed.title} added\n")
 
         elif parsed.command == 'view':
-            # View command logic will go here
-            # parsed.view will =  keyword for options e.g 'all' or 'overdue'
-            print("\nTo-do list will be printed to screen here\n")
-            pass
+            if parsed.view == 'all':
+                for task in t.data:
+                    print(task)
 
         t.add_todo(
             task='Wash Dishes',
