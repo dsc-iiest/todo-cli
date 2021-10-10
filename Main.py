@@ -5,15 +5,24 @@ import argparse
 import threading
 import shlex
 
-# This is a sample intended application of the to-do cli
-def parse_command(command):
-    """."""
-    parser = argparse.ArgumentParser(description='')
+
+def parse_command(command: str):
+    """
+    Parses a command and returns Namespace of the results.
+
+    Parameters:
+    command (str): The command to parse
+
+    Returns:
+    Namespace object - comprised of values relevant to the command parameter
+    """
+    parser = argparse.ArgumentParser(
+            description='Full Fledged Command Line Based Todo List')
     subparsers = parser.add_subparsers(dest='command',
-            help='Available to-do list commands')
+            help='Available todo list commands')
 
     parser_add = subparsers.add_parser('add',
-            help='Add a new task to the to-do list')
+            help='Add a new task to the todo list')
     parser_add.add_argument('title', type=str, help='The title of the task')
     parser_add.add_argument('description', type=str,
             help='The description of the task')
@@ -21,11 +30,12 @@ def parse_command(command):
             help='An optional deadline argument in minutes')
 
     parser_add = subparsers.add_parser('view',
-            help='View the to-do list')
-    parser_add.add_argument('view', type=str, default='all', nargs='?',
-            help='The title of the task')
+            help='View the todo list')
+    parser_add.add_argument('view', type=str, choices=('all', 'overdue'),
+            default='all', nargs='?',
+            help='What type of view you want to invoke')
 
-    return parser.parse_args(command)
+    return parser.parse_args(shlex.split(command))
 
 
 if __name__ == "__main__":
@@ -38,7 +48,7 @@ if __name__ == "__main__":
             exit()
 
         try:
-            parsed = parse_command(shlex.split(command))
+            parsed = parse_command(command)
         except SystemExit:
             continue
 
