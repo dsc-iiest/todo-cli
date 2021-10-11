@@ -23,17 +23,20 @@ def parse_command(command: str):
 
     parser_add = subparsers.add_parser('add',
             help='Add a new task to the todo list')
-    parser_add.add_argument('title', type=str, help='The title of the task')
+    parser_add.add_argument('title', type=str,
+            help='The title of the task - '
+                'enclose in quotes if more than one word')
     parser_add.add_argument('description', type=str,
-            help='The description of the task')
+            help='The description of the task - '
+                'enclose in quotes if more than one word')
     parser_add.add_argument('deadline', type=float, nargs='?',
-            help='An optional deadline argument in minutes')
+            help='Optional argument that sets a deadline for the todo item '
+                'in minutes - decimal values are valid')
 
     parser_add = subparsers.add_parser('view',
             help='View the todo list')
-    parser_add.add_argument('view', type=str, choices=('all', 'overdue'),
-            default='all', nargs='?',
-            help='What type of view you want to invoke')
+    parser_add.add_argument('view', type=str, default='all', nargs='?',
+            help='Displays all todo list items')
 
     return parser.parse_args(shlex.split(command))
 
