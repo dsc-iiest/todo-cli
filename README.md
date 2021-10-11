@@ -16,7 +16,7 @@ Full Fledged Command Line Based Todo List with following features
     ```
 2. Run Script
    ```
-   python3 Main.py
+   python Main.py
    ```
 
 ## Sample Notification
