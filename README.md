@@ -4,7 +4,7 @@
 Full Fledged Command Line Based Todo List with following features
 
 - [x] Save and Remove Todo
-- [ ] Interactive Interface
+- [x] Interactive Interface
 - [ ] Persistent Todo Storage
 - [x] OS Notifications
 - [ ] Todo Data Encryption
