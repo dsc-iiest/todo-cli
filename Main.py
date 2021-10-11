@@ -51,9 +51,8 @@ if __name__ == "__main__":
     t1.start()
 
     while True:
-        command = input("\nEnter Command ('--help' for usage instructions "
-                "or 'exit' to close) : ").lower() or '--help'
-        print()
+        command = input("\nEnter Command below ('--help' for usage "
+                "instructions or 'exit' to close):\n\n").lower() or '--help'
 
         if command == "exit":
             exit()
@@ -68,7 +67,7 @@ if __name__ == "__main__":
                 t.add_todo(parsed.title, parsed.description, parsed.deadline)
             else:
                 t.add_todo(parsed.title, parsed.description)
-            print(f"\nAdded the todo list item: {parsed.title}\n")
+            print(f"\nAdded the todo list item: {parsed.title}")
 
         elif parsed.command == 'view':
             if parsed.view == 'all':

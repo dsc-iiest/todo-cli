@@ -32,8 +32,10 @@ class Todo:
 
     def deadline_reached(self) -> None:
         """Print a message announcing that the todo's deadline is up."""
-        print(f"\nDeadline for task '{self.get_task()}' has been reached - its"
-                f" description was:\n\n{self.get_desc()}\n")
+        print(f"\nDeadline for task '{self.get_task()}' has been reached\n"
+                f"Its description was: {self.get_desc()}\n")
+        print("Enter Command below ('--help' for usage instructions "
+                "or 'exit' to close):\n")
 
     def __lt__(self, other) -> bool:
         """less than operator override"""
