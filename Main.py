@@ -71,5 +71,9 @@ if __name__ == "__main__":
 
         elif parsed.command == 'view':
             if parsed.view == 'all':
-                for task in t.data:
-                    print(task)
+                if t.data:
+                    for task in t.data:
+                        print(task)
+                else:
+                    print("\nTodo list is empty - add some items with the "
+                            "'add' command")
