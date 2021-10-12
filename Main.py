@@ -1,3 +1,5 @@
+import datetime
+
 from modules.TodoList import TodoList
 from modules.TodoListChecker import checker
 
@@ -29,9 +31,10 @@ def parse_command(command: str):
     parser_add.add_argument('description', type=str,
             help='The description of the task - '
                 'enclose in quotes if more than one word')
-    parser_add.add_argument('deadline', type=float, nargs='?',
-            help='Optional argument that sets a deadline for the todo item '
-                'in minutes - decimal values are valid')
+    parser_add.add_argument('deadline', type=str, nargs='?',
+            help='Optional argument that sets a deadline for the todo item - '
+                'deadline should be given in format dd/mm/YYYY H:M enclosed in quotes.'
+                'time should be given in 24 hours format')
 
     parser_add = subparsers.add_parser('view',
             help='View the todo list')
@@ -39,6 +42,20 @@ def parse_command(command: str):
             help='Displays all todo list items')
 
     return parser.parse_args(shlex.split(command))
+
+
+def get_notification_datetime_from_notification_datetime_string(notification_time_str: str):
+    try:
+        if notification_time_str:
+            notification_time = datetime.datetime.strptime(notification_time_str, "%d/%m/%Y %H:%M")
+            if notification_time <= datetime.datetime.now():
+                raise ValueError
+        else:
+            notification_time = datetime.datetime.now() + datetime.timedelta(minutes=1)
+        return notification_time
+    except ValueError:
+        print("Notification time provided is either in wrong format or invalid.")
+        return None
 
 
 if __name__ == "__main__":
@@ -63,11 +80,13 @@ if __name__ == "__main__":
             continue
 
         if parsed.command == 'add':
-            if parsed.deadline:
-                t.add_todo(parsed.title, parsed.description, parsed.deadline)
+            notification_datetime = get_notification_datetime_from_notification_datetime_string(parsed.deadline)
+            if notification_datetime:
+                t.add_todo(parsed.title, parsed.description, notification_datetime)
+                print(f"\nAdded the todo list item: {parsed.title}")
             else:
-                t.add_todo(parsed.title, parsed.description)
-            print(f"\nAdded the todo list item: {parsed.title}")
+                print(f"\nCannot add the todo list item: {parsed.title}")
+                continue
 
         elif parsed.command == 'view':
             if parsed.view == 'all':

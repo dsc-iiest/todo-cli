@@ -1,3 +1,5 @@
+import datetime
+
 from .Todo import Todo
 import heapq
 
@@ -12,16 +14,16 @@ class TodoList:
     def __init__(self) -> None:
         self.data = []
 
-    def add_todo(self, task: str, description: str, minute_deadline_offset: float = 1) -> None:
+    def add_todo(self, task: str, description: str, notification_datetime: datetime) -> None:
         """
         adds a to-do in the todo_list
 
         Parameters:
         task (str): the task of the To-do
         description (str): the description of the To-do
-        deadline_offset (float): after how many min do you need to-do notify?
+        notification_datetime (datetime): when do you need to-do notify?
         """
-        heapq.heappush(self.data, Todo(task, description, minute_deadline_offset))
+        heapq.heappush(self.data, Todo(task, description, notification_datetime))
 
     def curr_todo_done(self):
         """
