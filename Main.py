@@ -34,11 +34,11 @@ def parse_command(command: str):
     parser_add.add_argument('--time', type=str, nargs='?',
             help='Optional argument that sets a deadline for the todo item - '
                 'deadline should be given in format dd/mm/YYYY H:M enclosed in quotes.'
-                'time should be given in 24 hours format')
+                'Time should be given in 24 hours format')
     parser_add.add_argument('--offset', type=float, nargs='?', default=1,
-            help='Optional argument that sets a deadline for the todo item - '
+            help='Optional argument that sets a deadline for the todo item '
                  'in minutes - decimal values are valid.'
-                 'By default each todo item will have deade for the next minute.')
+                 'By default, each todo item will have a minute deadline.')
 
     parser_add = subparsers.add_parser('view',
             help='View the todo list')
