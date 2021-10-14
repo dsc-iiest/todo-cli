@@ -6,15 +6,16 @@ class Todo:
     A single to-do with a task and a deadline
     """
 
-    def __init__(self, task: str, desc: str, offset: float):
+    def __init__(self, task: str, desc: str, notification_datetime: datetime):
         """
         Makes a To-do
 
         Parameters:
         task (str): the task of the To-do
-        deadline_offset (float): after how many min do you need to-do notify?
+        desc (str): the description of the To-do
+        notification_datetime (datetime): when do you need to-do notify?
         """
-        self.time_rec = datetime.datetime.now() + datetime.timedelta(minutes=offset)
+        self.time_rec = notification_datetime
         self.task = task
         self.desc = desc
 
