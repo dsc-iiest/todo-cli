@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     while True:
         command = input("\nEnter Command below ('--help' for usage "
-                "instructions or 'exit' to close):\n\n").lower() or '--help'
+                "instructions or 'exit' to close):\n").lower() or '--help'
 
         if command == "exit":
             exit()
