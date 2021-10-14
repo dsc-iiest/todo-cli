@@ -36,6 +36,13 @@ Notifications will look like as follows
 - [Rahul Halder](https://github.com/hrahul2605)
 - [Arnab Sen](https://github.com/arnabsen1729)
 
+## Contributors
+<a href="https://github.com/dsc-iiest/todo-cli/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dsc-iiest/todo-cli" />
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
+
 ## Contributing
 
 Thank you for your interest in contributing to our repo! Before making any PR, we strongly suggest you go through our [contribution guidelines](./CONTIRBUTING.md) to see how you can contribute to this project.
