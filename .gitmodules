@@ -1,0 +1,3 @@
+[submodule "notify-py"]
+	path = notify-py
+	url = https://github.com/Abhiroop25902/notify-py.git

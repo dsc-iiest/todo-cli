@@ -19,31 +19,31 @@ def parse_command(command: str):
     Namespace object - comprised of values relevant to the command parameter
     """
     parser = argparse.ArgumentParser(
-            description='Full Fledged Command Line Based Todo List')
+        description='Full Fledged Command Line Based Todo List')
     subparsers = parser.add_subparsers(dest='command',
-            help='Available todo list commands')
+                                       help='Available todo list commands')
 
     parser_add = subparsers.add_parser('add',
-            help='Add a new task to the todo list')
+                                       help='Add a new task to the todo list')
     parser_add.add_argument('title', type=str,
-            help='The title of the task - '
-                'enclose in quotes if more than one word')
+                            help='The title of the task - '
+                                 'enclose in quotes if more than one word')
     parser_add.add_argument('description', type=str,
-            help='The description of the task - '
-                'enclose in quotes if more than one word')
+                            help='The description of the task - '
+                                 'enclose in quotes if more than one word')
     parser_add.add_argument('--time', type=str, nargs='?',
-            help='Optional argument that sets a deadline for the todo item - '
-                'deadline should be given in format dd/mm/YYYY H:M enclosed in quotes.'
-                'Time should be given in 24 hours format')
+                            help='Optional argument that sets a deadline for the todo item - '
+                                 'deadline should be given in format dd/mm/YYYY H:M enclosed in quotes.'
+                                 'Time should be given in 24 hours format')
     parser_add.add_argument('--offset', type=float, nargs='?', default=1,
-            help='Optional argument that sets a deadline for the todo item '
-                 'in minutes - decimal values are valid.'
-                 'By default, each todo item will have a minute deadline.')
+                            help='Optional argument that sets a deadline for the todo item '
+                                 'in minutes - decimal values are valid.'
+                                 'By default, each todo item will have a minute deadline.')
 
     parser_add = subparsers.add_parser('view',
-            help='View the todo list')
+                                       help='View the todo list')
     parser_add.add_argument('view', type=str, default='all', nargs='?',
-            help='Displays all todo list items')
+                            help='Displays all todo list items')
 
     return parser.parse_args(shlex.split(command))
 
@@ -64,7 +64,7 @@ def get_notification_datetime_from_time_or_offset(notification_time_str: str = N
 
 if __name__ == "__main__":
 
-    t= TodoList()
+    t = TodoList()
     # multithreading used here st it doesn't interfere with Future to-do Insertion
     t1 = threading.Thread(target=checker, args=(t,), name='t1')
     # this makes the thread auto close when the parent thread closes
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
     while True:
         command = input("\nEnter Command below ('--help' for usage "
-                "instructions or 'exit' to close):\n").lower() or '--help'
+                        "instructions or 'exit' to close):\n").lower() or '--help'
 
         if command == "exit":
             exit()
@@ -99,4 +99,4 @@ if __name__ == "__main__":
                         print(task)
                 else:
                     print("\nTodo list is empty - add some items with the "
-                            "'add' command")
+                          "'add' command")
