@@ -89,6 +89,10 @@ Notifications will look similar to the following:
 - [Rahul Halder](https://github.com/hrahul2605)
 - [Arnab Sen](https://github.com/arnabsen1729)
 
+## Special Thanks
+- [@ms7m](https://github.com/ms7m) for the [notify-py](https://github.com/ms7m/notify-py)
+  - This repo uses custom version of notify-py to support custom notification icon
+
 ## Contributors
 <a href="https://github.com/dsc-iiest/todo-cli/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=dsc-iiest/todo-cli" />
