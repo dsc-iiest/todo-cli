@@ -2,11 +2,12 @@ import datetime
 
 from modules.TodoList import TodoList
 from modules.TodoListChecker import checker
+from modules.saveTodos import *
 
 import argparse
 import threading
 import shlex
-
+import os
 
 def parse_command(command: str):
     """
@@ -64,7 +65,7 @@ def get_notification_datetime_from_time_or_offset(notification_time_str: str = N
 
 if __name__ == "__main__":
 
-    t= TodoList()
+    t= getData()
     # multithreading used here st it doesn't interfere with Future to-do Insertion
     t1 = threading.Thread(target=checker, args=(t,), name='t1')
     # this makes the thread auto close when the parent thread closes
@@ -76,6 +77,7 @@ if __name__ == "__main__":
                 "instructions or 'exit' to close):\n").lower() or '--help'
 
         if command == "exit":
+            saveData(t)
             exit()
 
         try:
