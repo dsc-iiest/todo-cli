@@ -20,7 +20,6 @@ def getKey() :
     
 
 def saveData(t: TodoList) :
-    print('hi')
     data = {}
     data['todo'] = []
     for i in t.data :
@@ -31,7 +30,7 @@ def saveData(t: TodoList) :
     jsonString = json.dumps(data)
     fernet = Fernet(getKey())
     encryptedString = fernet.encrypt(jsonString.encode())
-    with open('dump.dat', 'w') as f :
+    with open('dump.dat', 'wb') as f :
         f.write(encryptedString)
 
 def getData()-> TodoList :
@@ -40,13 +39,14 @@ def getData()-> TodoList :
     if not (data_file in os.listdir('.')) :
         return t
 
-    with open('dump.dat', 'r') as f :
+    with open('dump.dat', 'rb') as f :
         encryptedString = f.read()
     fernet = Fernet(getKey())
     jsonString = fernet.decrypt(encryptedString).decode()
     data = json.loads(jsonString)
     for i in data['todo'] :
-        t.add_todo(i['task'], i['desc'], i['time'])
+        dt = datetime.datetime.strptime(i['time'], "%Y-%m-%d %H:%M:%S.%f")
+        t.add_todo(i['task'], i['desc'], dt)
     return t  
 
 

@@ -142,3 +142,7 @@ cython_debug/
 
 # Mac OS 
 .DS_Store
+
+#datafiles
+key
+dump.dat
