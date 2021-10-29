@@ -4,51 +4,49 @@ import datetime
 import os
 
 from .TodoList import TodoList
-from .Todo import Todo
 
-key_file = 'key'
-data_file = 'dump.dat'
 
-def getKey() :
-    if key_file in os.listdir('.') :
+KEY_FILE = 'key'
+DATA_FILE = 'dump.dat'
+
+
+def get_key():
+    if KEY_FILE in os.listdir('.'):
         return open('./key', 'rb').read()
-    else :
+    else:
         key = Fernet.generate_key()
         with open('./key', 'wb') as f:
             f.write(key)
         return key
-    
 
-def saveData(t: TodoList) :
+
+def save_data(t: TodoList):
     data = {}
     data['todo'] = []
-    for i in t.data :
+    for i in t.data:
         task = i.get_task()
         desc = i.get_desc()
         time = i.get_deadline()
         data['todo'].append({'task': task, 'desc': desc, 'time': str(time)})
-    jsonString = json.dumps(data)
-    fernet = Fernet(getKey())
-    encryptedString = fernet.encrypt(jsonString.encode())
-    with open('dump.dat', 'wb') as f :
-        f.write(encryptedString)
+    json_string = json.dumps(data)
+    fernet = Fernet(get_key())
+    encrypted_string = fernet.encrypt(json_string.encode())
+    with open('dump.dat', 'wb') as f:
+        f.write(encrypted_string)
 
-def getData()-> TodoList :
-    encryptedString = ''
+
+def get_data() -> TodoList:
+    encrypted_string = ''
     t = TodoList()
-    if not (data_file in os.listdir('.')) :
+    if not (DATA_FILE in os.listdir('.')):
         return t
 
-    with open('dump.dat', 'rb') as f :
-        encryptedString = f.read()
-    fernet = Fernet(getKey())
-    jsonString = fernet.decrypt(encryptedString).decode()
-    data = json.loads(jsonString)
-    for i in data['todo'] :
+    with open('dump.dat', 'rb') as f:
+        encrypted_string = f.read()
+    fernet = Fernet(get_key())
+    json_string = fernet.decrypt(encrypted_string).decode()
+    data = json.loads(json_string)
+    for i in data['todo']:
         dt = datetime.datetime.strptime(i['time'], "%Y-%m-%d %H:%M:%S.%f")
         t.add_todo(i['task'], i['desc'], dt)
-    return t  
-
-
-    
-
+    return t

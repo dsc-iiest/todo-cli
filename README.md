@@ -6,8 +6,8 @@ Full-Fledged Command Line Based Todo List with the following features planned:
 - [x] Interactive Interface
 - [x] OS Notifications
 - [x] Save and Remove Todo
-- [ ] Persistent Todo Storage
-- [ ] Todo Data Encryption
+- [x] Persistent Todo Storage
+- [x] Todo Data Encryption
 
 ## To Run the Program
 1. Install dependencies
@@ -57,7 +57,7 @@ view
 ```
 
 ### Exit
-To exit the program, which at the moment will result in losing the entirety of your todo list, simply enter the 'exit' command when prompted:
+To exit the program, and save your pending todos, in an encrypted file, simply enter the 'exit' command when prompted:
 ```
 exit
 ```
