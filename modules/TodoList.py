@@ -14,7 +14,9 @@ class TodoList:
     def __init__(self) -> None:
         self.data = []
 
-    def add_todo(self, task: str, description: str, notification_datetime: datetime) -> None:
+    def add_todo(
+            self, task: str, description: str,
+            notification_datetime: datetime) -> None:
         """
         adds a to-do in the todo_list
 
@@ -23,7 +25,9 @@ class TodoList:
         description (str): the description of the To-do
         notification_datetime (datetime): when do you need to-do notify?
         """
-        heapq.heappush(self.data, Todo(task, description, notification_datetime))
+        heapq.heappush(
+            self.data,
+            Todo(task, description, notification_datetime))
 
     def curr_todo_done(self):
         """
